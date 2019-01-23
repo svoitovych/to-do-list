@@ -14,8 +14,8 @@ export default class TodoApp extends React.Component {
     this.deleteChecked = this.deleteChecked.bind(this);
 
     this.state = {todoItems: [
-      {id: 1, value: "fuck the system", isCheck: true},
-      {id: 2, value: "Yo", isCheck: false}
+      {value: "fuck the system", isCheck: false},
+      {value: "Yo", isCheck: false}
     ]};
   }
 
@@ -46,6 +46,7 @@ export default class TodoApp extends React.Component {
   }
 
   removeItem (itemId) {
+    console.log(itemId);
     let todoItems = this.state.todoItems;
     todoItems.splice(itemId, 1);
     this.setState({todoItems: todoItems});
