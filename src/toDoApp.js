@@ -1,9 +1,11 @@
 import React from 'react';
 
+var initItems = [];
+initItems.push({index: 1, value: "learn react", done: false});
+initItems.push({index: 2, value: "Go shopping", done: true});
+initItems.push({index: 3, value: "buy flowers", done: true});
+
 var todoItems = [];
-todoItems.push({index: 1, value: "learn react", done: false});
-todoItems.push({index: 2, value: "Go shopping", done: true});
-todoItems.push({index: 3, value: "buy flowers", done: true});
 
 export default class TodoApp extends React.Component {
   constructor (props) {
@@ -11,7 +13,7 @@ export default class TodoApp extends React.Component {
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
     this.markTodoDone = this.markTodoDone.bind(this);
-    this.state = {todoItems: todoItems};
+    this.state = {todoItems: initItems};
   }
   addItem(todoItem) {
     todoItems.unshift({
@@ -36,7 +38,7 @@ export default class TodoApp extends React.Component {
     return (
       <div id="main">
         <TodoHeader />
-        <TodoList items={this.props.initItems} removeItem={this.removeItem} markTodoDone={this.markTodoDone}/>
+        <TodoList items={this.state.todoItems} removeItem={this.removeItem} markTodoDone={this.markTodoDone}/>
         <TodoForm addItem={this.addItem} />
       </div>
     );
