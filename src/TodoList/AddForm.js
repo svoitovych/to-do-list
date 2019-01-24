@@ -1,8 +1,6 @@
 import React from 'react';
 
-
-
-export default class TodoForm extends React.Component {
+export default class AddForm extends React.Component {
 
   constructor(props) {
     super(props);
@@ -22,8 +20,8 @@ export default class TodoForm extends React.Component {
   render () {
     return (
       <form ref="form" onSubmit={this.onSubmit}>
-        <input type="text" ref="itemName" placeholder="add a new todo..."/>
-        <button type="submit">Add</button>
+        <input type="text" ref="itemName" placeholder="input new item..."/>
+        <button type="submit">NEW</button>
       </form>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class TodoDeleteForm extends React.Component {
+export default class DeleteForm extends React.Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
