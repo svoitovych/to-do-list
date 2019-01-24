@@ -25,7 +25,6 @@ export default class App extends React.Component {
     let todoItems = this.state.todoItems;
 
     todoItems.push({
-      id: this.state.todoItems.length+1,
       value: todoItem.newItemValue,
       isCheck: false
     });
@@ -40,6 +39,7 @@ export default class App extends React.Component {
     todoItems.forEach(function(item, index, arr) {
       if (!item.isCheck) todoItemsNew.push(item);
     });
+
     this.setState({todoItems: todoItemsNew});
   }
 
@@ -64,7 +64,12 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <ItemList items={this.state.todoItems} removeItem={this.removeItem} checkItem={this.checkItem} editItem={this.editItem}/>
+        <ItemList
+          items={this.state.todoItems}
+          removeItem={this.removeItem}
+          checkItem={this.checkItem}
+          editItem={this.editItem}
+        />
         <DeleteForm deleteChecked={this.deleteChecked}/>
         <AddForm addItem={this.addItem} />
       </div>

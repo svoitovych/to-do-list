@@ -33,7 +33,14 @@ export default class Item extends React.Component {
     return(
       <li className="list-group-item ">
         <div>
-          <input ref="itemCheckBox" type="checkbox" name="scales" className="checkbox" onClick={this.onClickCheck} checked={this.props.item.isCheck}/>
+          <input
+            ref="itemCheckBox"
+            type="checkbox"
+            name="scales"
+            className="checkbox"
+            onClick={this.onClickCheck}
+            checked={this.props.item.isCheck}
+          />
           <button type="button" onClick={this.onClickClose}>X</button>
           <button type="button" onClick={this.onClickEdit}>EDIT</button>
           {this.props.item.value}
