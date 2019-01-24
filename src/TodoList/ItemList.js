@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Item from './Item';
 
 export default class ItemList extends React.Component {
+
+  deleteChecked = () => {
+    this.props.deleteChecked();
+  }
 
   render () {
     var items = this.props.items.map((item, id, isCheck) => {
@@ -19,7 +23,10 @@ export default class ItemList extends React.Component {
     });
 
     return (
-      <ul className="list-group"> {items} </ul>
+      <Fragment>
+        <ul className="list-group"> {items} </ul>
+        <button type="button" onClick={this.deleteChecked}>delete checked</button>
+      </Fragment>
     );
   }
 }

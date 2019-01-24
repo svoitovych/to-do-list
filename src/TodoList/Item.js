@@ -1,25 +1,19 @@
 import React from 'react';
 
 export default class Item extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onClickClose = this.onClickClose.bind(this);
-    this.onClickCheck = this.onClickCheck.bind(this);
-    this.onClickEdit = this.onClickEdit.bind(this);
-  }
 
-  onClickClose() {
-    let id = parseInt(this.props.id);
+  onClickClose = () => {
+    let id = this.props.id;
     this.props.removeItem(id);
   }
 
-  onClickCheck() {
-    let id = parseInt(this.props.id);
+  onClickCheck = () => {
+    let id = this.props.id;
     this.props.checkItem(id);
   }
 
-  onClickEdit() {
-    let id = parseInt(this.props.id);
+  onClickEdit = () => {
+    let id = this.props.id;
     let value = this.props.item.value;
 
     let text = prompt("please enter new text", value);

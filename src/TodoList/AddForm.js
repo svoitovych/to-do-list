@@ -2,12 +2,7 @@ import React from 'react';
 
 export default class AddForm extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onSubmit(event) {
+  onSubmit = (event) => {
     event.preventDefault();
     var newItemValue = this.refs.itemName.value;
 

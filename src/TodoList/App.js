@@ -1,18 +1,12 @@
 import React from 'react';
 import ItemList from './ItemList';
 import AddForm from './AddForm';
-import DeleteForm from './DeleteForm';
 
 
 export default class App extends React.Component {
 
   constructor (props) {
     super(props);
-    this.addItem = this.addItem.bind(this);
-    this.removeItem = this.removeItem.bind(this);
-    this.editItem = this.editItem.bind(this);
-    this.checkItem = this.checkItem.bind(this);
-    this.deleteChecked = this.deleteChecked.bind(this);
 
     this.state = {todoItems: [
       {value: "fuck the system", isCheck: false},
@@ -21,7 +15,7 @@ export default class App extends React.Component {
     ]};
   }
 
-  addItem(todoItem) {
+  addItem = (todoItem) => {
     let todoItems = this.state.todoItems;
 
     todoItems.push({
@@ -32,7 +26,7 @@ export default class App extends React.Component {
     this.setState({todoItems: todoItems});
   }
 
-  deleteChecked() {
+  deleteChecked = () => {
     let todoItems = this.state.todoItems;
     let todoItemsNew = [];
 
@@ -43,25 +37,26 @@ export default class App extends React.Component {
     this.setState({todoItems: todoItemsNew});
   }
 
-  removeItem (itemId) {
+  removeItem = (itemId) => {
     let todoItems = this.state.todoItems;
     todoItems.splice(itemId, 1);
     this.setState({todoItems: todoItems});
   }
 
-  editItem (itemId, value) {
+  editItem = (itemId, value) => {
     let todoItems = this.state.todoItems;
     todoItems[itemId].value = value;
     this.setState({todoItems: todoItems});
   }
 
-  checkItem (itemIndex) {
+  checkItem = (itemIndex) => {
     let todoItems = this.state.todoItems;
     todoItems[itemIndex].isCheck = !todoItems[itemIndex].isCheck;
     this.setState({checkItemList: todoItems});
   }
 
   render() {
+
     return (
       <div>
         <ItemList
@@ -69,8 +64,8 @@ export default class App extends React.Component {
           removeItem={this.removeItem}
           checkItem={this.checkItem}
           editItem={this.editItem}
+          deleteChecked={this.deleteChecked}
         />
-        <DeleteForm deleteChecked={this.deleteChecked}/>
         <AddForm addItem={this.addItem} />
       </div>
     );
